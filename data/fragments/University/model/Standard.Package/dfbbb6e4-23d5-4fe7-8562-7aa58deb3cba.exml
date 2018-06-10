@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="university" version="4">
+  <OBJECT>
+    <ID name="university" mc="Standard.Package" uid="dfbbb6e4-23d5-4fe7-8562-7aa58deb3cba"/>
+    <PID name="University" mc="Standard.Project" uid="676392ef-3184-4927-883f-4df82d569f93"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[university]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Use Case" mc="Standard.UseCase" uid="88a9461a-be97-4297-bfae-c2f3958e8984"/>
+        <COMPID name="S'authentifier" mc="Standard.UseCase" uid="13795abb-2421-4c61-a329-b0c9b3639708"/>
+        <COMPID name="Opération sur les etudiants" mc="Standard.UseCase" uid="b2bdeb8c-3cf0-49d0-93b4-9e94dfaaefc6"/>
+        <COMPID name="Inscrire un étudiant" mc="Standard.UseCase" uid="d712aa52-695e-42c8-8963-a31cdef3d1b4"/>
+        <COMPID name="Modifier les données étudiant" mc="Standard.UseCase" uid="77230366-b6b2-4cf2-9956-cc0ba6621d3d"/>
+        <COMPID name="Supprimer étudiant" mc="Standard.UseCase" uid="a37aa0b6-5b86-4bb1-94cd-f491c628a5b1"/>
+        <COMPID name="Affecter à une classe" mc="Standard.UseCase" uid="d1c310d6-205b-4980-abe4-f00d5dffc7e5"/>
+        <COMPID name="Opérations sur les classes" mc="Standard.UseCase" uid="1fca3ee6-c66c-4e8b-9181-ebb1cde58002"/>
+        <COMPID name="Ajouter une classe" mc="Standard.UseCase" uid="cd59d482-8cac-4acc-8f4f-715b5885506d"/>
+        <COMPID name="Modifier les données classe" mc="Standard.UseCase" uid="64f5dfd0-28dc-4498-b99c-2076b34ece54"/>
+        <COMPID name="Supprimer une classe" mc="Standard.UseCase" uid="5ada91d2-6468-4d96-b2d9-0822e67af108"/>
+        <COMPID name="Supprimer les étudiants de la classe" mc="Standard.UseCase" uid="d4827e76-c988-4861-b419-b06603a31143"/>
+        <COMPID name="Générer liste d'étudiants" mc="Standard.UseCase" uid="56a45110-6d01-4755-a77d-2366e906bdde"/>
+        <COMPID name="Calculer moyennes" mc="Standard.UseCase" uid="8a82b932-d9d1-49a0-a70b-1a9aa0616839"/>
+        <COMPID name="Générer les états" mc="Standard.UseCase" uid="83c7911d-09ad-499c-833f-e6751d7b53cc"/>
+        <COMPID name="Opération sur les années universitaires" mc="Standard.UseCase" uid="a5104787-5004-4c47-933b-3ad5fab87fac"/>
+        <COMPID name="Archiver" mc="Standard.UseCase" uid="268f9293-d0b0-43d0-8c90-a903fe11bc7d"/>
+        <COMPID name="Ouvrir nouvelle année" mc="Standard.UseCase" uid="48ca059a-57ad-41f7-bf44-d25fee82e6d5"/>
+        <COMPID name="Générer les statistiques" mc="Standard.UseCase" uid="8b7f7145-6700-4710-9258-9d9ada9741e0"/>
+        <COMPID name="Opérations sur les enseignants" mc="Standard.UseCase" uid="e83ecaf1-78c9-4cd5-87ae-a87147563730"/>
+        <COMPID name="Générer recu de paiement" mc="Standard.UseCase" uid="e2177c93-4bc7-4df7-bacf-37629bdbf58a"/>
+        <COMPID name="Générer les relevés de notes" mc="Standard.UseCase" uid="5f5afcfd-21c1-41e2-98b0-4c8e51490ffc"/>
+        <COMPID name="Créer son espace" mc="Standard.UseCase" uid="57a4eb5f-0cb0-4151-9a29-c0399da63df7"/>
+        <COMPID name="Gérer les FAQ" mc="Standard.UseCase" uid="a87ee4ac-5b99-4b26-8a2a-9e0eb3e42976"/>
+        <COMPID name="Suivre les copies" mc="Standard.UseCase" uid="7cf865c8-d506-45f7-af5b-9ecbcbdf5502"/>
+        <COMPID name="Affecter un enseignant à une classe" mc="Standard.UseCase" uid="168d2004-a68d-420a-8e9f-a1ea9acdaf57"/>
+        <COMPID name="Saisir les notes" mc="Standard.UseCase" uid="c693423f-9b86-464a-b655-ccc9c7b9758c"/>
+        <COMPID name="Agent scolarité" mc="Standard.Actor" uid="c376206c-671a-40dd-bf94-e1c3891938c2"/>
+        <COMPID name="Enseignant" mc="Standard.Actor" uid="cf228101-e9f2-4fc8-8ef2-270b7c15fa22"/>
+        <COMPID name="Responsable université" mc="Standard.Actor" uid="9f2fea94-a9fa-48e3-b1a2-be649b922915"/>
+        <COMPID name="Gestion des paramètres" mc="Standard.UseCase" uid="39e287e2-d98a-407f-b5f0-0d5f5202cf01"/>
+        <COMPID name="Gestion des profils" mc="Standard.UseCase" uid="ac4016d1-5a86-405b-97b4-21cb5a9187ad"/>
+        <COMPID name="Administrateur" mc="Standard.Actor" uid="5149b629-8f0a-4a49-a7db-164c09acc0ed"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="university Use Case diagram" mc="Standard.UseCaseDiagram" uid="d0079d14-b5f1-482f-897b-38efca6d1443"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>
