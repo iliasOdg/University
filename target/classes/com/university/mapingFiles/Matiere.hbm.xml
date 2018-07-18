@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 18 juil. 2018 08:25:31 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping package="com.university.entities">
+    <class name="com.university.entities.Matiere" table="matiere" schema="public" optimistic-lock="version">
+        <id name="idmatiere" type="int">
+            <column name="idmatiere" />
+            <generator class="assigned" />
+        </id>
+        <property name="codematiere" type="string">
+            <column name="codematiere" length="20" />
+        </property>
+        <property name="libellelongmatiere" type="string">
+            <column name="libellelongmatiere" length="100" />
+        </property>
+        <property name="libellecourtmatiere" type="java.lang.Integer">
+            <column name="libellecourtmatiere" />
+        </property>
+        <property name="etat" type="string">
+            <column name="etat" length="20" />
+        </property>
+        <property name="usrcreate" type="string">
+            <column name="usrcreate" length="50" />
+        </property>
+        <property name="userlastupdate" type="string">
+            <column name="userlastupdate" length="50" />
+        </property>
+        <property name="userdelete" type="string">
+            <column name="userdelete" length="50" />
+        </property>
+        <set name="notes" table="note" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idmatiere" />
+            </key>
+            <one-to-many class="com.university.entities.Note" />
+        </set>
+        <set name="enseignantmatiereclasses" table="enseignantmatiereclasse" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idmatiere" />
+            </key>
+            <one-to-many class="com.university.entities.Enseignantmatiereclasse" />
+        </set>
+    </class>
+</hibernate-mapping>

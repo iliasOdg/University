@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 18 juil. 2018 08:25:31 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping package="com.university.entities">
+    <class name="com.university.entities.Note" table="note" schema="public" optimistic-lock="version">
+        <id name="idnote" type="int">
+            <column name="idnote" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="etudiant" class="com.university.entities.Etudiant" fetch="select">
+            <column name="idetudiant" />
+        </many-to-one>
+        <many-to-one name="matiere" class="com.university.entities.Matiere" fetch="select">
+            <column name="idmatiere" />
+        </many-to-one>
+        <property name="note" type="java.lang.Integer">
+            <column name="note" />
+        </property>
+        <property name="noterattrapage" type="java.lang.Integer">
+            <column name="noterattrapage" />
+        </property>
+        <property name="semestre" type="java.lang.Integer">
+            <column name="semestre" />
+        </property>
+        <property name="annee" type="string">
+            <column name="annee" length="20" />
+        </property>
+        <property name="etat" type="string">
+            <column name="etat" length="20" />
+        </property>
+        <property name="usrcreate" type="string">
+            <column name="usrcreate" length="50" />
+        </property>
+        <property name="userlastupdate" type="string">
+            <column name="userlastupdate" length="50" />
+        </property>
+        <property name="userdelete" type="string">
+            <column name="userdelete" length="50" />
+        </property>
+    </class>
+</hibernate-mapping>

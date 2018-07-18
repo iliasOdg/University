@@ -41,18 +41,18 @@ Contributor(s):
 -->
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="University" match-schema="public"/>
-  <table-filter match-name="detailpaiement"/>
-  <table-filter match-name="uniteenseignement"/>
-  <table-filter match-name="enseignantmatiereclasse"/>
   <table-filter match-name="inscription"/>
-  <table-filter match-name="enseignant"/>
-  <table-filter match-name="moyenne"/>
-  <table-filter match-name="piecejustificative"/>
-  <table-filter match-name="matiere"/>
-  <table-filter match-name="note"/>
+  <table-filter match-name="uniteenseignement"/>
+  <table-filter match-name="anneeuniversitaire"/>
   <table-filter match-name="classe"/>
+  <table-filter match-name="detailpaiement"/>
+  <table-filter match-name="note"/>
+  <table-filter match-name="enseignant"/>
+  <table-filter match-name="piecejustificative"/>
+  <table-filter match-name="etudiant"/>
   <table-filter match-name="filiere"/>
   <table-filter match-name="semestre"/>
-  <table-filter match-name="anneeuniversitaire"/>
-  <table-filter match-name="etudiant"/>
+  <table-filter match-name="moyenne"/>
+  <table-filter match-name="matiere"/>
+  <table-filter match-name="enseignantmatiereclasse"/>
 </hibernate-reverse-engineering>

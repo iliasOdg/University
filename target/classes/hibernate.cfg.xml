@@ -46,6 +46,22 @@ Contributor(s):
     <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/University</property>
     <property name="hibernate.connection.username">postgres</property>
     <property name="hibernate.connection.password">root</property>
-    <mapping resource="hibernate.hbm.xml"/>
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.format_sql">true</property>
+    <property name="hibernate.use_sql_comments">true</property>
+    <mapping resource="com/university/mapingFiles/Moyenne.hbm.xml"/>
+    <mapping resource="com/university/mapingFiles/Piecejustificative.hbm.xml"/>
+    <mapping resource="com/university/mapingFiles/Matiere.hbm.xml"/>
+    <mapping resource="com/university/mapingFiles/Classe.hbm.xml"/>
+    <mapping resource="com/university/mapingFiles/Detailpaiement.hbm.xml"/>
+    <mapping resource="com/university/mapingFiles/Filiere.hbm.xml"/>
+    <mapping resource="com/university/mapingFiles/Enseignant.hbm.xml"/>
+    <mapping resource="com/university/mapingFiles/Anneeuniversitaire.hbm.xml"/>
+    <mapping resource="com/university/mapingFiles/Note.hbm.xml"/>
+    <mapping resource="com/university/mapingFiles/Uniteenseignement.hbm.xml"/>
+    <mapping resource="com/university/mapingFiles/Inscription.hbm.xml"/>
+    <mapping resource="com/university/mapingFiles/Semestre.hbm.xml"/>
+    <mapping resource="com/university/mapingFiles/Enseignantmatiereclasse.hbm.xml"/>
+    <mapping resource="com/university/mapingFiles/Etudiant.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

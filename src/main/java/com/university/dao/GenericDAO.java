@@ -5,10 +5,10 @@
  */
 package com.university.dao;
 
-import com.university.exceptions.PersistObjectException;
-import com.university.factory.HibernateFactory;
+import com.university.factory.HibernateUtil;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 /**
@@ -19,14 +19,15 @@ import org.hibernate.Transaction;
 public class GenericDAO<T> {
     
     private Session session;
+    private SessionFactory sessionFactory;
     private Transaction tx = null;
     
     public GenericDAO(){
-        
+        sessionFactory = HibernateUtil.getSessionFactory();
     }
     
-    public void persistObject(T entity)throws PersistObjectException{
-        session = HibernateFactory.getSession();
+    public void persistObject(T entity){
+        session = sessionFactory.openSession(); 
         try {
             tx = session.beginTransaction();
             session.persist(entity);
@@ -36,15 +37,17 @@ public class GenericDAO<T> {
         } catch (HibernateException e) {
             if(tx != null){
                 tx.rollback();
-            } throw new PersistObjectException(e.getMessage(), " l'enregistrement");
+            } //throw new PersistObjectException(e.getMessage(), " l'enregistrement");
         }finally{
-            session.close();
+            if (tx != null) {
+                session.close();
+            }
         }
-        HibernateFactory.closeSessionFactory();
+        
     }
     
-    public void updateObject(T entity)throws PersistObjectException{
-        session = HibernateFactory.getSession();
+    public void updateObject(T entity){
+        session = sessionFactory.openSession();
         
         try {
             tx = session.beginTransaction();
@@ -56,15 +59,17 @@ public class GenericDAO<T> {
             if (tx != null) {
                 tx.rollback();
             }
-            throw new PersistObjectException(e.getMessage(), "Mise à jour..");
+            //throw new PersistObjectException(e.getMessage(), "Mise à jour..");
         }finally{
-            HibernateFactory.closeSessionFactory();
+            if (tx != null) {
+                session.close();
+            }
+            
         }
     }
     
-    public void removeObject(T entity)throws PersistObjectException{
-        session = HibernateFactory.getSession();
-        
+    public void removeObject(T entity){
+        session = sessionFactory.openSession();
         try {
             tx = session.beginTransaction();
             session.remove(entity);
@@ -75,14 +80,16 @@ public class GenericDAO<T> {
             if (tx != null) {
                 tx.rollback();
             }
-            throw new PersistObjectException(e.getMessage(), "Suppression..");
+            //throw new PersistObjectException(e.getMessage(), "Suppression..");
         }finally{
-            HibernateFactory.closeSessionFactory();
+            if (tx != null) {
+                session.close();
+            }
         }
     }
     
     public T findObjectByPrimaryKey(T entity, Object pk){
-        session = HibernateFactory.getSession();
+        session = sessionFactory.openSession();
         T result;
         try {
             tx = session.beginTransaction();
@@ -96,7 +103,10 @@ public class GenericDAO<T> {
             }
             throw e;
         }finally{
-            HibernateFactory.closeSessionFactory();
+            if (tx != null) {
+                session.close();
+                
+            }
         }
         
         return result;

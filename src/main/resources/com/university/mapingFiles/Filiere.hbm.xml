@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 18 juil. 2018 08:25:31 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping package="com.university.entities">
+    <class name="com.university.entities.Filiere" table="filiere" schema="public" optimistic-lock="version">
+        <id name="idfiliere" type="int">
+            <column name="idfiliere" />
+            <generator class="assigned" />
+        </id>
+        <property name="libellelongfiliere" type="string">
+            <column name="libellelongfiliere" length="50" />
+        </property>
+        <property name="libellecourtfiliere" type="string">
+            <column name="libellecourtfiliere" length="10" />
+        </property>
+        <property name="usrcreate" type="string">
+            <column name="usrcreate" length="50" />
+        </property>
+        <property name="userlastupdate" type="string">
+            <column name="userlastupdate" length="50" />
+        </property>
+        <property name="userdelete" type="string">
+            <column name="userdelete" length="50" />
+        </property>
+        <set name="classes" table="classe" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idfiliere" />
+            </key>
+            <one-to-many class="com.university.entities.Classe" />
+        </set>
+    </class>
+</hibernate-mapping>

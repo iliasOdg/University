@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 18 juil. 2018 08:25:31 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping package="com.university.entities">
+    <class name="com.university.entities.Inscription" table="inscription" schema="public" optimistic-lock="version">
+        <id name="idinscription" type="int">
+            <column name="idinscription" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="classe" class="com.university.entities.Classe" fetch="select">
+            <column name="idclasse" />
+        </many-to-one>
+        <many-to-one name="etudiant" class="com.university.entities.Etudiant" fetch="select">
+            <column name="idetudiant" />
+        </many-to-one>
+        <property name="scolarite" type="big_decimal">
+            <column name="scolarite" precision="131089" scale="0" />
+        </property>
+        <property name="montantscolaritepaye" type="java.lang.Integer">
+            <column name="montantscolaritepaye" />
+        </property>
+        <property name="annee" type="string">
+            <column name="annee" length="20" />
+        </property>
+        <property name="usrcreate" type="string">
+            <column name="usrcreate" length="50" />
+        </property>
+        <property name="userlastupdate" type="string">
+            <column name="userlastupdate" length="50" />
+        </property>
+        <property name="userdelete" type="string">
+            <column name="userdelete" length="50" />
+        </property>
+        <set name="detailpaiements" table="detailpaiement" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idinscription" />
+            </key>
+            <one-to-many class="com.university.entities.Detailpaiement" />
+        </set>
+        <set name="moyennes" table="moyenne" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idinscription" />
+            </key>
+            <one-to-many class="com.university.entities.Moyenne" />
+        </set>
+        <set name="piecejustificatives" table="piecejustificative" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idinscription" />
+            </key>
+            <one-to-many class="com.university.entities.Piecejustificative" />
+        </set>
+    </class>
+</hibernate-mapping>

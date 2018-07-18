@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 18 juil. 2018 08:25:31 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping package="com.university.entities">
+    <class name="com.university.entities.Enseignantmatiereclasse" table="enseignantmatiereclasse" schema="public" optimistic-lock="version">
+        <id name="idenseignantmatiereclasse" type="int">
+            <column name="idenseignantmatiereclasse" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="classe" class="com.university.entities.Classe" fetch="select">
+            <column name="idclasse" />
+        </many-to-one>
+        <many-to-one name="enseignant" class="com.university.entities.Enseignant" fetch="select">
+            <column name="idenseignant" />
+        </many-to-one>
+        <many-to-one name="matiere" class="com.university.entities.Matiere" fetch="select">
+            <column name="idmatiere" />
+        </many-to-one>
+        <many-to-one name="semestre" class="com.university.entities.Semestre" fetch="select">
+            <column name="idsemestre" />
+        </many-to-one>
+        <many-to-one name="uniteenseignement" class="com.university.entities.Uniteenseignement" fetch="select">
+            <column name="idue" />
+        </many-to-one>
+        <property name="credit" type="java.lang.Integer">
+            <column name="credit" />
+        </property>
+        <property name="annee" type="string">
+            <column name="annee" length="20" />
+        </property>
+        <property name="usrcreate" type="string">
+            <column name="usrcreate" length="50" />
+        </property>
+        <property name="userlastupdate" type="string">
+            <column name="userlastupdate" length="50" />
+        </property>
+        <property name="userdelete" type="string">
+            <column name="userdelete" length="50" />
+        </property>
+    </class>
+</hibernate-mapping>

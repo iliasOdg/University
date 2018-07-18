@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 18 juil. 2018 08:25:31 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping package="com.university.entities">
+    <class name="com.university.entities.Moyenne" table="moyenne" schema="public" optimistic-lock="version">
+        <id name="idmoyenne" type="int">
+            <column name="idmoyenne" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="inscription" class="com.university.entities.Inscription" fetch="select">
+            <column name="idinscription" />
+        </many-to-one>
+        <property name="moyenne" type="big_decimal">
+            <column name="moyenne" precision="131089" scale="0" />
+        </property>
+        <property name="fgsession" type="java.lang.Boolean">
+            <column name="fgsession" />
+        </property>
+        <property name="semestre" type="java.lang.Integer">
+            <column name="semestre" />
+        </property>
+        <property name="usrcreate" type="string">
+            <column name="usrcreate" length="50" />
+        </property>
+        <property name="userlastupdate" type="string">
+            <column name="userlastupdate" length="50" />
+        </property>
+        <property name="userdelete" type="string">
+            <column name="userdelete" length="50" />
+        </property>
+    </class>
+</hibernate-mapping>

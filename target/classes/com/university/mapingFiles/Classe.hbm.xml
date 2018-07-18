@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 18 juil. 2018 08:25:31 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping package="com.university.entities">
+    <class name="com.university.entities.Classe" table="classe" schema="public" optimistic-lock="version">
+        <id name="idclasse" type="int">
+            <column name="idclasse" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="filiere" class="com.university.entities.Filiere" fetch="select">
+            <column name="idfiliere" />
+        </many-to-one>
+        <property name="libelleclasse" type="string">
+            <column name="libelleclasse" length="50" />
+        </property>
+        <property name="scolarite" type="big_decimal">
+            <column name="scolarite" precision="131089" scale="0" />
+        </property>
+        <property name="usrcreate" type="string">
+            <column name="usrcreate" length="50" />
+        </property>
+        <property name="userlastupdate" type="string">
+            <column name="userlastupdate" length="50" />
+        </property>
+        <property name="userdelete" type="string">
+            <column name="userdelete" length="50" />
+        </property>
+        <set name="enseignantmatiereclasses" table="enseignantmatiereclasse" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idclasse" />
+            </key>
+            <one-to-many class="com.university.entities.Enseignantmatiereclasse" />
+        </set>
+        <set name="inscriptions" table="inscription" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idclasse" />
+            </key>
+            <one-to-many class="com.university.entities.Inscription" />
+        </set>
+    </class>
+</hibernate-mapping>

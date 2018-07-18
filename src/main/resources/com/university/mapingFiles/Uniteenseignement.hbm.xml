@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 18 juil. 2018 08:25:31 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping package="com.university.entities">
+    <class name="com.university.entities.Uniteenseignement" table="uniteenseignement" schema="public" optimistic-lock="version">
+        <id name="idue" type="int">
+            <column name="idue" />
+            <generator class="assigned" />
+        </id>
+        <property name="libelleue" type="string">
+            <column name="libelleue" length="20" />
+        </property>
+        <property name="usrcreate" type="string">
+            <column name="usrcreate" length="50" />
+        </property>
+        <property name="userlastupdate" type="string">
+            <column name="userlastupdate" length="50" />
+        </property>
+        <property name="userdelete" type="string">
+            <column name="userdelete" length="50" />
+        </property>
+        <set name="enseignantmatiereclasses" table="enseignantmatiereclasse" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idue" />
+            </key>
+            <one-to-many class="com.university.entities.Enseignantmatiereclasse" />
+        </set>
+    </class>
+</hibernate-mapping>
